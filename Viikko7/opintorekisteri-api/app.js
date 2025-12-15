@@ -5,6 +5,8 @@ var opiskelijaRouter = require('./routes/opiskelija');
 var opintojaksoRouter = require('./routes/opintojakso');
 var arviointiRouter = require('./routes/arviointi');
 
+const userRouter = require('./routes/user');
+
 var app = express();
 
 app.use(logger('dev'));
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use('/opiskelijat', opiskelijaRouter);
 app.use('/opintojaksot', opintojaksoRouter);
 app.use('/arvioinnit', arviointiRouter);
+app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Opintorekisteri API running' });
